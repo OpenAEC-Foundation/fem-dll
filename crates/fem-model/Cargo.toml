@@ -1,0 +1,9 @@
+[package]
+name = "fem-model"
+description = "The neutral model of fem-dll: meshes with their fields, and structural analysis models"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]

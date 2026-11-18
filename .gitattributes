@@ -1,0 +1,2 @@
+# sample files are kept byte for byte
+crates/*/tests/samples/** -text

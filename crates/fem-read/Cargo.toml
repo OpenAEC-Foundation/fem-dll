@@ -1,0 +1,17 @@
+[package]
+name = "fem-read"
+description = "Readers of finite element meshes, simulation results and structural analysis models into fem-model"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+fem-model = { path = "../fem-model" }
+# VTK legacy and XML files (MIT OR Apache-2.0); without the xz compression, which needs a C
+# library, so the reader builds for the browser too
+vtkio = { version = "=0.7.0-rc2", default-features = false, features = ["xml", "flate2", "lz4"] }
+# the .pvd time series and .vtm multiblock files (MIT)
+quick-xml = "0.41"
+# base64 for the raw appended data of XML files (MIT OR Apache-2.0)
+base64 = "0.22"
