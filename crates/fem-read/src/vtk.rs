@@ -13,7 +13,7 @@
 //! - A time series reads the files of its first time step as the mesh and of the other steps
 //!   only the fields; a step whose mesh has another number of points or cells is left out.
 
-use crate::Side;
+use crate::{stem, Side};
 use fem_model::*;
 use std::collections::BTreeMap;
 use vtkio::model::{Attribute, Attributes, DataSet, ElementType, Extent, IOBuffer, Piece, VertexNumbers};
@@ -67,11 +67,6 @@ fn join(base: &str, rel: &str) -> String {
 /// The folder of a path relative to the first file's folder.
 fn folder(path: &str) -> &str {
     path.rfind('/').map_or("", |k| &path[..k])
-}
-
-fn stem(name: &str) -> String {
-    let file = name.rsplit(['/', '\\']).next().unwrap_or(name);
-    file.rfind('.').map_or(file, |k| &file[..k]).to_string()
 }
 
 /// A legacy or an XML VTK file.
